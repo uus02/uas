@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lms/core/constants/colors.dart';
 import 'package:lms/shared/widgets/course_card.dart';
 import 'package:lms/features/my_classes/presentation/pages/course_detail_screen.dart';
+import 'package:lms/features/profile/presentation/pages/profile_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -39,10 +40,18 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              CircleAvatar(
-                radius: 24,
-                backgroundColor: kSurfaceColor,
-                child: const Icon(Icons.person, color: kPrimaryColor),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context, 
+                    MaterialPageRoute(builder: (context) => const ProfileScreen()),
+                  );
+                },
+                child: CircleAvatar(
+                  radius: 24,
+                  backgroundColor: kSurfaceColor,
+                  child: const Icon(Icons.person, color: kPrimaryColor),
+                ),
               ),
             ],
           ),

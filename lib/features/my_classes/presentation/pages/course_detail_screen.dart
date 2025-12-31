@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lms/core/constants/colors.dart';
+import 'package:lms/features/quiz/presentation/pages/quiz_info_screen.dart';
 
 class CourseDetailScreen extends StatelessWidget {
   final String courseName;
@@ -99,15 +100,23 @@ class CourseDetailScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Icon(
-                        Icons.assignment, 
+                        index == 1 ? Icons.quiz : Icons.assignment, // Dummy distinction
                         color: isDone ? kAccentColor : Colors.orange
                       ),
                     ),
-                    title: Text("Tugas ${index + 1}: Analisis User Flow"),
+                    title: Text(index == 1 ? "Quiz Review 1" : "Tugas ${index + 1}: Analisis User Flow"),
                     subtitle: Text("Deadline: ${10 + index} Jan 2026"),
                     trailing: isDone 
                       ? const Icon(Icons.check_circle, color: kAccentColor)
                       : const Icon(Icons.circle_outlined, color: Colors.grey),
+                    onTap: () {
+                      if (index == 1) { // Dummy condition for Quiz item
+                        Navigator.push(
+                          context, 
+                          MaterialPageRoute(builder: (context) => const QuizInfoScreen()),
+                        );
+                      }
+                    },
                   ),
                 );
               },
