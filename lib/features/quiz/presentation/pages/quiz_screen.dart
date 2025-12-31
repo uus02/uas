@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lms/core/constants/colors.dart';
 import 'dart:async';
+import 'package:lms/features/quiz/presentation/pages/quiz_result_screen.dart';
 
 class QuizScreen extends StatefulWidget {
   const QuizScreen({super.key});
@@ -158,13 +159,21 @@ class _QuizScreenState extends State<QuizScreen> {
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                   ),
                   onPressed: () {
-                    // Next Question Logic
+                    // Next Question Logic or Finish
+                    // For demo, if we click next, we just show result if it were real
+                    // Let's mimic "Selesai" if it was the last question
+                    // Or just a direct navigation for this demo flow
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => const QuizResultScreen()),
+                    );
                   },
-                  child: const Row(
+                  child: Row(
                     children: [
-                      Text("Soal Selanjutnya"),
-                      SizedBox(width: 8),
-                      Icon(Icons.arrow_forward, size: 18),
+                      // Hardcoded for demo to pretend last question
+                      const Text("Selesai"), // Changed from "Soal Selanjutnya" for demo flow
+                      const SizedBox(width: 8),
+                      const Icon(Icons.check_circle, size: 18),
                     ],
                   ),
                 ),

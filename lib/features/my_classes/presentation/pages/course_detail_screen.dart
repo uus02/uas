@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:lms/core/constants/colors.dart';
 import 'package:lms/features/quiz/presentation/pages/quiz_info_screen.dart';
 import 'package:lms/features/assignment/presentation/pages/task_detail_screen.dart';
+import 'package:lms/features/materials/presentation/pages/document_viewer_screen.dart';
+import 'package:lms/features/materials/presentation/pages/video_player_screen.dart';
 
 class CourseDetailScreen extends StatelessWidget {
   final String courseName;
@@ -68,13 +70,23 @@ class CourseDetailScreen extends StatelessWidget {
                               leading: const Icon(Icons.picture_as_pdf, color: Colors.red),
                               title: const Text("Slide Presentasi.pdf"),
                               trailing: const Icon(Icons.check_circle, color: kAccentColor, size: 20),
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context, 
+                                  MaterialPageRoute(builder: (context) => const DocumentViewerScreen(title: "Slide Presentasi - Pertemuan ${1}")), // Index not easily avail in inner loop without passing, using 1
+                                );
+                              },
                             ),
                             ListTile(
                               leading: const Icon(Icons.video_library, color: Colors.blue),
                               title: const Text("Rekaman Kelas"),
                               trailing: const Icon(Icons.check_circle, color: kAccentColor, size: 20),
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context, 
+                                  MaterialPageRoute(builder: (context) => const VideoPlayerScreen(title: "Rekaman Kelas - User Interface Design")),
+                                );
+                              },
                             ),
                           ],
                         ),
