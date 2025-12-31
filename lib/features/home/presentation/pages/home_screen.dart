@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lms/core/constants/colors.dart';
 import 'package:lms/shared/widgets/course_card.dart';
+import 'package:lms/features/my_classes/presentation/pages/course_detail_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -193,31 +194,35 @@ class HomeScreen extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           // List vertikal mata kuliah
-          const Column(
+          Column(
             children: [
               CourseCard(
                 courseName: "Pemrograman Mobile",
                 lecturerName: "Dr. Budi Santoso",
                 courseInitial: "PM",
                 progress: 0.75,
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CourseDetailScreen(courseName: "Pemrograman Mobile", lecturerName: "Dr. Budi Santoso"))),
               ),
               CourseCard(
                 courseName: "Basis Data Lanjut",
                 lecturerName: "Siti Aminah, M.Kom",
                 courseInitial: "BD",
                 progress: 0.5,
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CourseDetailScreen(courseName: "Basis Data Lanjut", lecturerName: "Siti Aminah, M.Kom"))),
               ),
               CourseCard(
                 courseName: "Jaringan Komputer",
                 lecturerName: "Agus Setiawan, MT",
                 courseInitial: "JK",
                 progress: 0.3,
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CourseDetailScreen(courseName: "Jaringan Komputer", lecturerName: "Agus Setiawan, MT"))),
               ),
               CourseCard(
                 courseName: "Kecerdasan Buatan",
                 lecturerName: "Prof. Rina Wijaya",
                 courseInitial: "AI",
                 progress: 0.9,
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CourseDetailScreen(courseName: "Kecerdasan Buatan", lecturerName: "Prof. Rina Wijaya"))),
               ),
             ],
           ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lms/core/constants/colors.dart';
 import 'package:lms/features/home/presentation/pages/home_screen.dart';
+import 'package:lms/features/my_classes/presentation/pages/my_classes_screen.dart';
+import 'package:lms/features/notifications/presentation/pages/notification_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -15,8 +17,8 @@ class _MainScreenState extends State<MainScreen> {
   // List of screens for navigation
   final List<Widget> _screens = [
     const HomeScreen(),
-    const Center(child: Text("Halaman Kelas Saya (Coming Soon)")), // Placeholder
-    const Center(child: Text("Halaman Notifikasi (Coming Soon)")), // Placeholder
+    const MyClassesScreen(),
+    const NotificationScreen(),
   ];
 
   void _onItemTapped(int index) {
