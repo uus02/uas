@@ -1,6 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:lms/core/constants/colors.dart';
 
+// Text Styles
+const TextStyle kHeadingTextStyle = TextStyle(
+  fontSize: 24,
+  fontWeight: FontWeight.bold,
+  color: kTextColor,
+);
+
+const TextStyle kBodyTextStyle = TextStyle(
+  fontSize: 16,
+  color: kTextColor,
+);
+
 final ThemeData appTheme = ThemeData(
   primaryColor: kPrimaryColor,
   scaffoldBackgroundColor: kBackgroundColor,
@@ -26,6 +38,7 @@ final ThemeData appTheme = ThemeData(
         borderRadius: BorderRadius.circular(8), 
       ),
       padding: const EdgeInsets.symmetric(vertical: 16),
+      textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
     ),
   ),
   // Mengatur style Text Field (untuk form Login)
@@ -33,6 +46,10 @@ final ThemeData appTheme = ThemeData(
     focusedBorder: UnderlineInputBorder(
       borderSide: BorderSide(color: kPrimaryColor, width: 2),
     ),
+    labelStyle: const TextStyle(color: kTextLightColor),
   ),
-  // Anda bisa menambahkan TextTheme di sini jika ingin menggunakan font kustom.
+  textTheme: const TextTheme(
+    headlineSmall: kHeadingTextStyle,
+    bodyMedium: kBodyTextStyle,
+  ),
 );
