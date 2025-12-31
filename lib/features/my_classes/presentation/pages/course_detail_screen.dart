@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lms/core/constants/colors.dart';
 import 'package:lms/features/quiz/presentation/pages/quiz_info_screen.dart';
+import 'package:lms/features/assignment/presentation/pages/task_detail_screen.dart';
 
 class CourseDetailScreen extends StatelessWidget {
   final String courseName;
@@ -110,10 +111,19 @@ class CourseDetailScreen extends StatelessWidget {
                       ? const Icon(Icons.check_circle, color: kAccentColor)
                       : const Icon(Icons.circle_outlined, color: Colors.grey),
                     onTap: () {
-                      if (index == 1) { // Dummy condition for Quiz item
+                      if (index == 1) { 
                         Navigator.push(
                           context, 
                           MaterialPageRoute(builder: (context) => const QuizInfoScreen()),
+                        );
+                      } else {
+                        // All other items are Assignments
+                        Navigator.push(
+                          context, 
+                          MaterialPageRoute(builder: (context) => TaskDetailScreen(
+                            taskName: "Tugas ${index + 1}: Analisis User Flow",
+                            deadline: "${10 + index} Jan 2026",
+                          )),
                         );
                       }
                     },
