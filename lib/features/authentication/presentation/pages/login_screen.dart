@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lms/core/constants/colors.dart';
+import 'package:lms/features/dashboard/presentation/pages/main_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -110,8 +111,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: ElevatedButton(
                       onPressed: () {
                         // Implement login placeholder
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text("Login not implemented yet")),
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => const MainScreen()),
                         );
                       },
                       child: const Text("Log In"),
